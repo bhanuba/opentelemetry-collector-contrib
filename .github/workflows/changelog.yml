@@ -9,8 +9,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
     branches:
-      - main
-      - 761
+      -761
 
 env:
   # Make sure to exit early if cache segment download times out after 2 minutes.
