@@ -62,9 +62,9 @@ jobs:
       - name: Ensure ./.chloggen/*.yaml addition(s)
         if: ${{ !contains(github.event.pull_request.labels.*.name, 'dependencies') && !contains(github.event.pull_request.labels.*.name, 'Skip Changelog') && !contains(github.event.pull_request.title, '[chore]')}}
         run: |
-          if [[ 0 -gt $(git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen-aws | grep -c \\.yaml) ]]
+          if [[ 0 -gt $(git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen | grep -c \\.yaml) ]]
           then
-            ls ./.chloggen-aws
+            ls ./.chloggen
             echo "No changelog entry was added to the ./.chloggen/ directory."
             echo "Please add a .yaml file to the ./.chloggen/ directory."
             echo "See CONTRIBUTING.md for more details."
@@ -72,14 +72,14 @@ jobs:
             false
           else
             echo "value="
-            echo $(git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen-aws | grep -c \\.yaml)
+            echo $(git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen| grep -c \\.yaml)
             echo "A changelog entry was added to the ./.chloggen-aws/ directory."
           fi
 
-      - name: Validate ./.chloggen-aws/*.yaml changes
+      - name: Validate ./.chloggen/*.yaml changes
         run: |
           make chlog-validate \
-            || { echo "New ./.chloggen-aws/*.yaml file failed validation."; exit 1; }
+            || { echo "New ./.chloggen/*.yaml file failed validation."; exit 1; }
 
       # In order to validate any links in the yaml file, render the config to markdown
       - name: Render .chloggen changelog entries
