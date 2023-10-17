@@ -76,7 +76,9 @@ jobs:
           fi
 
       - name: Validate ./.chloggen/*.yaml changes
-        run: |
+        run: | 
+          make chlog-new \
+            || { echo "New ./.chloggen/*.yaml file failed validation."; exit 1; }
           make chlog-validate \
             || { echo "New ./.chloggen/*.yaml file failed validation."; exit 1; }
 
