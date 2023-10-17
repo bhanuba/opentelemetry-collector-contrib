@@ -74,11 +74,12 @@ jobs:
           else
             echo "A changelog entry was added to the ./.chloggen/ directory."
           fi
+      - name: create yaml file
+        run: echo "changelog yaml created"
+          make chlog-new
 
       - name: Validate ./.chloggen/*.yaml changes
         run: | 
-          make chlog-new \
-            || { echo "New ./.chloggen/*.yaml file failed validation."; exit 1; }
           make chlog-validate \
             || { echo "New ./.chloggen/*.yaml file failed validation."; exit 1; }
 
