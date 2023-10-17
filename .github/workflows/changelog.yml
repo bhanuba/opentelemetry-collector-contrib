@@ -71,13 +71,15 @@ jobs:
             echo "Alternately, add either \"[chore]\" to the title of the pull request or add the \"Skip Changelog\" label if this job should be skipped."
             false
           else
+            echo "value="
+            echo $(git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen-aws | grep -c \\.yaml)
             echo "A changelog entry was added to the ./.chloggen-aws/ directory."
           fi
 
-      - name: Validate ./.chloggen/*.yaml changes
+      - name: Validate ./.chloggen-aws/*.yaml changes
         run: |
           make chlog-validate \
-            || { echo "New ./.chloggen/*.yaml file failed validation."; exit 1; }
+            || { echo "New ./.chloggen-aws/*.yaml file failed validation."; exit 1; }
 
       # In order to validate any links in the yaml file, render the config to markdown
       - name: Render .chloggen changelog entries
