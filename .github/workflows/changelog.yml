@@ -9,8 +9,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
     branches:
-      - 761
-      - main
+      -761
 
 env:
   # Make sure to exit early if cache segment download times out after 2 minutes.
@@ -74,6 +73,10 @@ jobs:
           else
             echo "A changelog entry was added to the ./.chloggen/ directory."
           fi
+
+      - name: create yaml file
+        run: echo "changelog yaml created"
+          make chlog-new
 
       - name: Validate ./.chloggen/*.yaml changes
         run: | 
