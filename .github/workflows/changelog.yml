@@ -16,7 +16,7 @@ env:
   # Make sure to exit early if cache segment download times out after 2 minutes.
   # We limit cache download as a whole to 5 minutes.
   SEGMENT_DOWNLOAD_TIMEOUT_MINS: 2
-  CWA_GITHUB_REPO_NAME: "aws/amazon-cloudwatch-agent"
+  CWA_GITHUB_REPO_NAME: "bhanuba/opentelemetry-collector-contrib"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -47,7 +47,9 @@ jobs:
             ~/go/pkg/mod
           key: changelog-${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
 
-
+      - name: files
+        run: |
+          ls -l
 #      - name: Ensure no changes to the CHANGELOG.md or CHANGELOG-API.md
 #        if: ${{ !contains(github.event.pull_request.labels.*.name, 'dependencies') && !contains(github.event.pull_request.labels.*.name, 'Skip Changelog') && !contains(github.event.pull_request.title, '[chore]')}}
 #        run: |
