@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
+	"os"
 	"strings"
 	"time"
 )
@@ -18,8 +19,15 @@ type ChangelogEntry struct {
 }
 
 func main() {
+
+	currentDirectory, err := os.Getwd()
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println("Current Directory:", currentDirectory)
+	}
 	// Read the YAML file
-	yamlFile, err := ioutil.ReadFile("../.chloggen-aws/TEMPLATE.yaml")
+	yamlFile, err := ioutil.ReadFile(currentDirectory + "../.chloggen-aws/TEMPLATE.yaml")
 	if err != nil {
 		fmt.Printf("Error reading YAML file: %v\n", err)
 		return
@@ -34,7 +42,7 @@ func main() {
 	}
 
 	// Read the existing content of the CHANGELOG-AWS.md file
-	existingContent, err := ioutil.ReadFile("../CHANGELOG-AWS.md")
+	existingContent, err := ioutil.ReadFile(currentDirectory + "../CHANGELOG-AWS.md")
 	if err != nil {
 		fmt.Printf("Error reading CHANGELOG-AWS.md: %v\n", err)
 		return
@@ -52,7 +60,7 @@ func main() {
 	newContent := []byte(entryText + string(existingContent))
 
 	// Write the combined content to the CHANGELOG-AWS.md file
-	err = ioutil.WriteFile("../CHANGELOG-AWS.md", newContent, 0644)
+	err = ioutil.WriteFile(currentDirectory+"../CHANGELOG-AWS.md", newContent, 0644)
 	if err != nil {
 		fmt.Printf("Error writing to CHANGELOG-AWS.md: %v\n", err)
 		return
