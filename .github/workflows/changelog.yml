@@ -2,20 +2,21 @@
 # yaml file to the ./.chloggen/ directory. If a CHANGELOG entry is not required,
 # or if performing maintance on the Changelog, add either \"[chore]\" to the title of
 # the pull request or add the \"Skip Changelog\" label to disable this action.
-CWA_GITHUB_REPO_NAME: "bhanuba/opentelemetry-collector-contrib"
+
 name: changelog
 
 on:
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
     branches:
-      -main
-      -761
+      - main
+      - 761
 
 env:
   # Make sure to exit early if cache segment download times out after 2 minutes.
   # We limit cache download as a whole to 5 minutes.
   SEGMENT_DOWNLOAD_TIMEOUT_MINS: 2
+  CWA_GITHUB_REPO_NAME: "bhanuba/opentelemetry-collector-contrib"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
