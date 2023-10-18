@@ -17,6 +17,7 @@ env:
   # We limit cache download as a whole to 5 minutes.
   SEGMENT_DOWNLOAD_TIMEOUT_MINS: 2
   CWA_GITHUB_REPO_NAME: "bhanuba/opentelemetry-collector-contrib"
+  BRANCH: 761
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -33,6 +34,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: ${{env.CWA_GITHUB_REPO_NAME}}
+          branch: ${{ env.BRANCH }}
       - uses: actions/setup-go@v4
         with:
           go-version: ~1.20.10
@@ -68,7 +70,7 @@ jobs:
       - name: Ensure ./.chloggen/*.yaml addition(s)
         if: ${{ !contains(github.event.pull_request.labels.*.name, 'dependencies') && !contains(github.event.pull_request.labels.*.name, 'Skip Changelog') && !contains(github.event.pull_request.title, '[chore]')}}
         run: |
-          count=$(git diff --diff-filter=A --name-only $(git merge-base origin/main $env.PR_HEAD) $env.PR_HEAD ./.chloggen-aws | grep -c \\.yaml)
+          count=$(git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen-aws | grep -c \\.yaml)
           if [[ 1 -gt count]]
           then
             echo count
