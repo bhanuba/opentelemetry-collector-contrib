@@ -15,8 +15,6 @@ template_yaml: .chloggen-aws/TEMPLATE.yaml
 # The CHANGELOG file or files to which 'chloggen update' will write new entries
 # (Optional) Default filename: CHANGELOG.md
 change_logs:
-  user: CHANGELOG.md
-  api: CHANGELOG-API.md
   changes: CHANGELOG-AWS.md
 
 # The default change_log or change_logs to which an entry should be added.
