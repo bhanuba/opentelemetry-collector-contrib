@@ -1,3 +1,15 @@
+## Bug_fix  -  2023-10-17
+
+**Component**: enhancement
+
+**Description**: added the chnages to opentel
+
+**Issues**: 0
+
+**Subtext**: This is a test fork making the changes for the main to test with the 761 branch
+
+**Change Logs**: changes
+
 # [](https://github.com/bhanuba/opentelemetry-collector-contrib/compare/v2.0.1...v) (2023-10-16)
 
 
