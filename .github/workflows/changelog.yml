@@ -68,7 +68,7 @@ jobs:
       - name: Ensure ./.chloggen/*.yaml addition(s)
         if: ${{ !contains(github.event.pull_request.labels.*.name, 'dependencies') && !contains(github.event.pull_request.labels.*.name, 'Skip Changelog') && !contains(github.event.pull_request.title, '[chore]')}}
         run: |
-          count=$(git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen-aws | grep -c \\.yaml)
+          count=$(git diff --diff-filter=A --name-only $(git merge-base origin/main $env.PR_HEAD) $env.PR_HEAD ./.chloggen-aws | grep -c \\.yaml)
           if [[ 1 -gt count]]
           then
             echo count
