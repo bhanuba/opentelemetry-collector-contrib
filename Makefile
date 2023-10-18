@@ -280,6 +280,14 @@ chlog-new: $(CHLOGGEN)
 chlog-new-aws: $(CHLOGGEN)
 	$(CHLOGGEN) new --config .chloggen-aws/config.yaml --filename $(FILENAME)
 
+.PHONY: chlog-validate-aws
+chlog-validate-aws: $(CHLOGGEN)
+	$(CHLOGGEN) validate --config .chloggen-aws/config.yaml
+
+.PHONY: chlog-preview-aws
+chlog-preview-aws: $(CHLOGGEN)
+	$(CHLOGGEN) update --config .chloggen-aws/config.yaml --dry
+
 .PHONY: chlog-validate
 chlog-validate: $(CHLOGGEN)
 	$(CHLOGGEN) validate --config $(CHLOGGEN_CONFIG)
