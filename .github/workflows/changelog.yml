@@ -2,7 +2,7 @@
 # yaml file to the ./.chloggen/ directory. If a CHANGELOG entry is not required,
 # or if performing maintance on the Changelog, add either \"[chore]\" to the title of
 # the pull request or add the \"Skip Changelog\" label to disable this action.
-
+CWA_GITHUB_REPO_NAME: "bhanuba/opentelemetry-collector-contrib"
 name: changelog
 
 on:
@@ -31,6 +31,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          repository: ${{env.CWA_GITHUB_REPO_NAME}}
       - uses: actions/setup-go@v4
         with:
           go-version: ~1.20.10
@@ -50,12 +51,14 @@ jobs:
         run: |
           if [[ $(git diff --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./CHANGELOG*.md) ]]
           then
+            ls ./CHANGELOG
             echo "CHANGELOG.md and CHANGELOG-API.md should not be directly modified."
             echo "Please add a .yaml file to the ./.chloggen/ directory."
             echo "See CONTRIBUTING.md for more details."
             echo "Alternately, add either \"[chore]\" to the title of the pull request or add the \"Skip Changelog\" label if this job should be skipped."
             false
           else
+            ls ./CHANGELOG
             echo "CHANGELOG.md and CHANGELOG-API.md were not modified."
           fi
 
