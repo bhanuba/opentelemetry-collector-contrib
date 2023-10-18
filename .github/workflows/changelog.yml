@@ -78,7 +78,6 @@ jobs:
           else
             echo "A changelog entry was added to the ./.chloggen/ directory."
           fi
-
       - name: Validate ./.chloggen/*.yaml changes
         run: | 
           make chlog-validate \
