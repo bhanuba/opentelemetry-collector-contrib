@@ -17,18 +17,13 @@ then
 fi
 
 make chlog-update VERSION="v${CANDIDATE_BETA}"
-#make chlog-aws
-git diff
 git config user.name opentelemetrybot
 git config user.email 107717825+opentelemetrybot@users.noreply.github.com
-git diff
 
 BRANCH="prepare-release-prs/${CANDIDATE_BETA}"
 git checkout -b "${BRANCH}"
 git add --all
 git commit -m "changelog update ${CANDIDATE_BETA}"
-echo "running to release new branch ${BRANCH}"
-git diff
 
 sed -i.bak "s/${CURRENT_BETA}/${CANDIDATE_BETA}/g" versions.yaml
 find . -name "*.bak" -type f -delete
