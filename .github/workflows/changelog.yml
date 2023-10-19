@@ -9,8 +9,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
     branches:
-      - 761
       - main
+      - branches/**
 
 env:
   # Make sure to exit early if cache segment download times out after 2 minutes.
@@ -79,7 +79,6 @@ jobs:
             false
           else
             ls ./.chloggen-aws
-            git diff --diff-filter=A --name-only $(git merge-base origin/main $PR_HEAD) $PR_HEAD ./.chloggen-aws
             echo "A changelog entry was added to the ./.chloggen-aws/ directory."
           fi
 

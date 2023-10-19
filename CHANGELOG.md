@@ -7,6 +7,61 @@ If you are looking for developer-facing changes, check out [CHANGELOG-API.md](./
 
 <!-- next version -->
 
+## v1.1.3
+
+## v1.1.3
+
+## v1.1.2
+
+## v1.1.0
+
+## c83e874b3b
+
+## v1.1
+
+## c83e874b3b
+
+## 085854d3c4
+
+### 🧰 Bug fixes 🧰
+
+- `enhancement`: added the chnages to opentel (#1111)
+  This is a test fork making the changes for the main to test with the 761 branch
+
+## 085854d3c4
+
+## 085854d3c4
+
+## 085854d3c4
+
+### 🧰 Bug fixes 🧰
+
+- `enhancement`: added the chnages to opentel (#1111)
+  This is a test fork making the changes for the main to test with the 761 branch
+
+## 085854d3c4
+
+## 085854d3c4
+
+## 085854d3c4
+
+## 085854d3c4
+
+### 🛑 Breaking changes 🛑
+
+- `k8sclusterreceiver`: Remove opencensus.resourcetype resource attribute (#26487)
+
+### 💡 Enhancements 💡
+
+- `azuredataexplorerexporter`: Added exporter helper config support for Azure Data Explorer exporter (#24329)
+- `k8sclusterreceiver`: add optional k8s.pod.qos_class resource attribute (#27483)
+- `splunkentreceiver`: Users can now use auth settings and basicauth extension to connect to their Splunk enterprise deployments (#27026)
+
+### 🧰 Bug fixes 🧰
+
+- `syslog`: add integration tests and fix related bugs (#21245)
+- `redactionprocessor`: Fix mask when multiple patterns exist (#27646)
+
 ## bccb946e3c
 
 ## v0.87.0

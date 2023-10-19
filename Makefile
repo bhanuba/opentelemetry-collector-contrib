@@ -302,7 +302,7 @@ chlog-aws:
 
 .PHONY: chlog-update-aws
 chlog-update-aws: $(CHLOGGEN)
-	$(CHLOGGEN) update --config .chloggen-aws/config.yaml --version $(VERSION)
+	$(CHLOGGEN) update --config $(CHLOGGEN_CONFIG_AWS) --version $(VERSION)
 
 .PHONY: chlog-update
 chlog-update: $(CHLOGGEN)
