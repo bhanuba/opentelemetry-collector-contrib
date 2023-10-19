@@ -27,6 +27,7 @@ BRANCH="prepare-release-prs/${CANDIDATE_BETA}"
 git checkout -b "${BRANCH}"
 git add --all
 git commit -m "changelog update ${CANDIDATE_BETA}"
+git show
 
 sed -i.bak "s/${CURRENT_BETA}/${CANDIDATE_BETA}/g" versions.yaml
 find . -name "*.bak" -type f -delete
