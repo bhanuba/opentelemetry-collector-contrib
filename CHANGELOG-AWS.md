@@ -7,6 +7,20 @@ If you are looking for developer-facing changes, check out [CHANGELOG-API.md](./
 
 <!-- next version -->
 
+## 0529d504b1
+
+### 🛑 Breaking changes 🛑
+
+- `enhancement`: added the chnages to opentel (#987654432)
+  This is a test fork making the changes for the main to test with the 761 branch
+
+### 🧰 Bug fixes 🧰
+
+- `enhancement`: added the chnages to opentel (#1111)
+  This is a test fork making the changes for the main to test with the 761 branch
+- `enhancement`: added the chnages to opentel (#1111)
+  This is a test fork making the changes for the main to test with the 761 branch
+
 
 ## v1.1.3
 
