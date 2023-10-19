@@ -17,7 +17,7 @@ vendor/
 *.dylib
 bin/
 dist/
-.tools/
+.tools-notused/
 
 # Emacs
 *~

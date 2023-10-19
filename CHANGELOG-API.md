@@ -7,6 +7,41 @@ If you are looking for user-facing changes, check out [CHANGELOG.md](./CHANGELOG
 
 <!-- next version -->
 
+## v1.1.3
+
+## v1.1.3
+
+## v1.1.2
+
+## v1.1.0
+
+## v1.1.0
+
+## c83e874b3b
+
+## v1.1
+
+## c83e874b3b
+
+## 085854d3c4
+
+### 🧰 Bug fixes 🧰
+
+- `enhancement`: added the chnages to opentel (#1111)
+  This is a test fork making the changes for the main to test with the 761 branch
+
+## 085854d3c4
+
+## 085854d3c4
+
+## 085854d3c4
+
+## 085854d3c4
+
+## 085854d3c4
+
+## 085854d3c4
+
 ## bccb946e3c
 
 ## v0.87.0
