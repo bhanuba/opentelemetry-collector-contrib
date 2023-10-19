@@ -21,12 +21,13 @@ make chlog-update-aws VERSION="v${CANDIDATE_BETA}"
 #git config user.email 107717825+opentelemetrybot@users.noreply.github.com
 
 git config user.name bhanuba
-git config user.email bhanup6reddy@gmail.com
+git config user.email bhanuba@amazon.com
 
 BRANCH="prepare-release-prs/${CANDIDATE_BETA}"
 git checkout -b "${BRANCH}"
 git add --all
 git commit -m "changelog update ${CANDIDATE_BETA}"
+git show
 
 sed -i.bak "s/${CURRENT_BETA}/${CANDIDATE_BETA}/g" versions.yaml
 find . -name "*.bak" -type f -delete
@@ -43,6 +44,7 @@ make genotelcontribcol
 make genoteltestbedcol
 git add .
 git commit -m "builder config changes ${CANDIDATE_BETA}" || (echo "no builder config changes to commit")
+
 #
 #make multimod-prerelease
 #git add .
@@ -56,14 +58,13 @@ git commit -m "builder config changes ${CANDIDATE_BETA}" || (echo "no builder co
 #git add .
 #git commit -m "make gotidy changes ${CANDIDATE_BETA}" || (echo "no gotidy changes to commit")
 #make otelcontribcol
-git fetch origin
-git rebase origin/"${BRANCH}"
+
 git push origin "${BRANCH}"
 
-gh pr create --title "[chore] Prepare release ${CANDIDATE_BETA}" --body "
-The following commands were run to prepare this release:
-- make chlog-update VERSION=v${CANDIDATE_BETA}
-- sed -i.bak s/${CURRENT_BETA}/${CANDIDATE_BETA}/g versions.yaml
-- make multimod-prerelease
-- make multimod-sync
-"
+#gh pr create --title "[chore] Prepare release ${CANDIDATE_BETA}" --body "
+#The following commands were run to prepare this release:
+#- make chlog-update VERSION=v${CANDIDATE_BETA}
+#- sed -i.bak s/${CURRENT_BETA}/${CANDIDATE_BETA}/g versions.yaml
+#- make multimod-prerelease
+#- make multimod-sync
+#"
