@@ -23,6 +23,7 @@ make chlog-update-aws VERSION="v${CANDIDATE_BETA}"
 git config user.name bhanuba
 git config user.email bhanuba@amazon.com
 
+git branch
 BRANCH="prepare-release-prs/${CANDIDATE_BETA}"
 git checkout -b "${BRANCH}"
 git add --all
