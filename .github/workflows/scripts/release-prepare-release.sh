@@ -56,7 +56,8 @@ git commit -m "builder config changes ${CANDIDATE_BETA}" || (echo "no builder co
 #git add .
 #git commit -m "make gotidy changes ${CANDIDATE_BETA}" || (echo "no gotidy changes to commit")
 #make otelcontribcol
-git pull
+git fetch origin
+git rebase origin/"${BRANCH}"
 git push origin "${BRANCH}"
 
 gh pr create --title "[chore] Prepare release ${CANDIDATE_BETA}" --body "
