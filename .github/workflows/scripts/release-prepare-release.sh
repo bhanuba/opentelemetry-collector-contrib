@@ -17,8 +17,11 @@ then
 fi
 
 make chlog-update-aws VERSION="v${CANDIDATE_BETA}"
-git config user.name opentelemetrybot
-git config user.email 107717825+opentelemetrybot@users.noreply.github.com
+#git config user.name opentelemetrybot
+#git config user.email 107717825+opentelemetrybot@users.noreply.github.com
+
+git config user.name bhanuba
+git config user.email bhanup6reddy@gmail.com
 
 BRANCH="prepare-release-prs/${CANDIDATE_BETA}"
 git checkout -b "${BRANCH}"
