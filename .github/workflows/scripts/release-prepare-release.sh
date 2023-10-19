@@ -67,4 +67,3 @@ make chlog-update-aws VERSION="v${CANDIDATE_BETA}"
 #- sed -i.bak s/${CURRENT_BETA}/${CANDIDATE_BETA}/g versions.yaml
 #- make multimod-prerelease
 #- make multimod-sync
-"
