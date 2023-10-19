@@ -45,18 +45,18 @@ make genoteltestbedcol
 git add .
 git commit -m "builder config changes ${CANDIDATE_BETA}" || (echo "no builder config changes to commit")
 
-make multimod-prerelease
-git add .
-git commit -m "make multimod-prerelease changes ${CANDIDATE_BETA}" || (echo "no multimod changes to commit")
-
-make multimod-sync
-git add .
-git commit -m "make multimod-sync changes ${CANDIDATE_BETA}" || (echo "no multimod changes to commit")
-
-make gotidy
-git add .
-git commit -m "make gotidy changes ${CANDIDATE_BETA}" || (echo "no gotidy changes to commit")
-make otelcontribcol
+#make multimod-prerelease
+#git add .
+#git commit -m "make multimod-prerelease changes ${CANDIDATE_BETA}" || (echo "no multimod changes to commit")
+#
+#make multimod-sync
+#git add .
+#git commit -m "make multimod-sync changes ${CANDIDATE_BETA}" || (echo "no multimod changes to commit")
+#
+#make gotidy
+#git add .
+#git commit -m "make gotidy changes ${CANDIDATE_BETA}" || (echo "no gotidy changes to commit")
+#make otelcontribcol
 
 git push origin "${BRANCH}"
 
