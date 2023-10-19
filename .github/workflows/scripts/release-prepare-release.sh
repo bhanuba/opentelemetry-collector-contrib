@@ -27,7 +27,6 @@ git branch
 git pull
 BRANCH="prepare-release-prs/${CANDIDATE_BETA}"
 git checkout -b "${BRANCH}"
-git pull
 git add --all
 git commit -m "changelog update ${CANDIDATE_BETA}"
 git show
