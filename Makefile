@@ -6,7 +6,7 @@ OTEL_VERSION=main
 OTEL_RC_VERSION=main
 OTEL_STABLE_VERSION=main
 
-VERSION=$(shell git describe --always --match "v[0-9]*" HEAD)
+VERSION=$(date +'%Y-%m-%d')
 
 COMP_REL_PATH=cmd/otelcontribcol/components.go
 MOD_NAME=github.com/open-telemetry/opentelemetry-collector-contrib
@@ -302,7 +302,7 @@ chlog-aws:
 
 .PHONY: chlog-update-aws
 chlog-update-aws: $(CHLOGGEN)
-	$(CHLOGGEN) update --config $(CHLOGGEN_CONFIG_AWS) --version $(VERSION)
+	$(CHLOGGEN) update --config $(CHLOGGEN_CONFIG_AWS) --version `date +'%y.%m.%d %H:%M:%S'`
 
 .PHONY: chlog-update
 chlog-update: $(CHLOGGEN)
@@ -455,4 +455,5 @@ generate-gh-issue-templates:
 	 	FILE="$${TMP_FILE}" ./.github/workflows/scripts/add-component-options.sh > "$${YAML_FILE}"; \
 		rm "$${TMP_FILE}"; \
 	done
-
+.PHONY: finddate
+	`date +'%y.%m.%d %H:%M:%S'`
