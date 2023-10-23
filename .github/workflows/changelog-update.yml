@@ -5,8 +5,12 @@ name: Update changelog
 #  UPSTREAM_BRANCH: CWQS-761
 
 on:
-  pull_request_review:
-    types: [submitted]
+#  pull_request_review:
+#    types: [submitted]
+  push:
+    branches:
+      - main
+      - test1
 
 jobs:
   update:
