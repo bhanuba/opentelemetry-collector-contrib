@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'open-telemetry/opentelemetry-collector'
+          path: opentelemetry-collector
+      - uses: actions/checkout@v4
+        with:
+          path: opentelemetry-collector-contrib
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          commit-message: updating changelog file
+          labels: bot
+          title: "Update changelog file"
+          body: |
+            Merge this PR to update your version and changelog!
+
+            ## Included Pull Requests
+
+            ${{ steps.changelog.outputs.pulls_list_md }}
