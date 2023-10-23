@@ -5,8 +5,8 @@ name: Update changelog
 #  UPSTREAM_BRANCH: CWQS-761
 
 on:
-  pull_request_review:
-    types: [submitted]
+  push:
+
 
 jobs:
   update:
@@ -38,7 +38,7 @@ jobs:
           git branch
           git status
       - name: stage changed files
-        run: git add .
+        run: git add .CHANGELOG-AWS.md
       - name: commit changed files
         run: |
           git config --global user.name 'Github Action'
