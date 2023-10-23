@@ -9,6 +9,13 @@ If you are looking for developer-facing changes, check out [CHANGELOG-API.md](./
 
 ## 23.10.23
 
+### 🧰 Bug fixes 🧰
+
+- `enhancement`: added the chnages to opentel (#1111)
+  This is a test fork making the changes for the main to test with the 761 branch
+
+## 23.10.23
+
 ### 🛑 Breaking changes 🛑
 
 - `enhancement`: added the chnages to opentel (#987654432)
