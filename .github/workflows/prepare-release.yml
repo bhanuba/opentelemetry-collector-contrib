@@ -35,4 +35,6 @@ jobs:
           REPO: open-telemetry/opentelemetry-collector-contrib
           CANDIDATE_BETA: ${{ inputs.candidate-beta }}
           CURRENT_BETA: ${{ inputs.current-beta }}
-        run: ./.github/workflows/scripts/release-prepare-release.sh
+        run: |
+          echo "to update the yaml files"
+          make chlog-update-aws
