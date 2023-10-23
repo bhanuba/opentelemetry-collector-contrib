@@ -1,3 +1,4 @@
+name: Update changelog
 on:
   workflow_dispatch:
 
