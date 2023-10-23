@@ -47,6 +47,6 @@ jobs:
       - name: pull from master
         run: |
           git remote -v
-          git pull --set-upstream-to=origin/761
+          git pull origin 761
       - name: push code to main
         run: git push origin 761
